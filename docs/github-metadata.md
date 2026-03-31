@@ -1,20 +1,13 @@
 # GitHub Metadata
 
-## Repository Description
+## Suggested GitHub Description
 
-AI-powered n8n workflow that qualifies inbound leads using OpenAI, routes priority leads, logs results to Google Sheets, and sends Slack and Gmail notifications.
+AI-powered lead qualification workflow in n8n with OpenAI, Google Sheets, Slack, and Gmail.
 
-## Suggested Topics
+## Suggested Repo Short Summary
 
-- n8n
-- ai-automation
-- lead-qualification
-- lead-scoring
-- openai
-- sales-automation
-- workflow-automation
-- google-sheets
-- slack
-- gmail
-- no-code
-- portfolio-project
+Automates lead intake, AI scoring, prioritization, and notifications for sales workflows.
+
+## Suggested GitHub Topics
+
+n8n, openai, automation, lead-qualification, lead-scoring, google-sheets, slack, gmail, workflow-automation, sales-automation
