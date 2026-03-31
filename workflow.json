@@ -1,5 +1,5 @@
 {
-  "name": "My workflow",
+  "name": "AI Lead Qualification System",
   "nodes": [
     {
       "parameters": {
@@ -116,7 +116,7 @@
       ],
       "id": "9edea01f-5dcf-4291-b9cd-41022d065230",
       "name": "On form submission",
-      "webhookId": "68f60e79-7ed0-4f29-a277-712f50aeb9ba"
+      "webhookId": "YOUR_FORM_WEBHOOK_ID"
     },
     {
       "parameters": {
@@ -146,8 +146,8 @@
       "name": "Message a model",
       "credentials": {
         "openAiApi": {
-          "id": "BYHdGg15tRYNud5d",
-          "name": "OpenAI account"
+          "id": "YOUR_OPENAI_CREDENTIAL",
+          "name": "YOUR_OPENAI_CREDENTIAL"
         }
       }
     },
@@ -213,15 +213,16 @@
         "operation": "append",
         "documentId": {
           "__rl": true,
-          "value": "1mpd8xq86bxby3h6Ogs2zfPyha0ZgVn6VR978yFB09WQ",
+          "value": "YOUR_GOOGLE_SHEET",
           "mode": "list",
-          "cachedResultName": "Lead Qualification System - Coaching Client",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mpd8xq86bxby3h6Ogs2zfPyha0ZgVn6VR978yFB09WQ/edit?usp=drivesdk"
+          "cachedResultName": "YOUR_GOOGLE_SHEET",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET"
         },
         "sheetName": {
           "__rl": true,
-          "value": 907108624,
-          "mode": "list"
+          "value": "YOUR_SHEET_TAB",
+          "mode": "list",
+          "cachedResultName": "Leads"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -235,15 +236,15 @@
             "budget": "={{$json.budget}}",
             "urgency": "={{$json.urgency}}",
             "ai_summary": "={{$json.ai_summary}}",
-            "qualification": "={{$json.ai_summary}}",
+            "qualification": "={{$json.qualification}}",
             "lead_score": "={{$json.lead_score}}",
             "recommended_action": "={{$json.recommended_action}}",
-            "submittedAt": "={{$json.submittedAt}}",
+            "submittedAt": "={{$json.submittedAt || $now}}",
             "status": "={{$json.status}}",
             "tag": "={{$json.tag}}",
             "revenue_tier": "={{$json.revenue_tier}}",
             "urgency_level": "={{$json.urgency_level}}",
-            " processedAt": "={{ new Date().toISOString() }}"
+            "processedAt": "={{ new Date().toISOString() }}"
           },
           "matchingColumns": [],
           "schema": [
@@ -404,8 +405,8 @@
               "removed": false
             },
             {
-              "id": " processedAt",
-              "displayName": " processedAt",
+              "id": "processedAt",
+              "displayName": "processedAt",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -429,14 +430,14 @@
       "name": "Append row in sheet",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "kvCvYvasrzOBYrgB",
-          "name": "Google Sheets OAuth2 API"
+          "id": "YOUR_GOOGLE_SHEETS_CREDENTIAL",
+          "name": "YOUR_GOOGLE_SHEETS_CREDENTIAL"
         }
       }
     },
     {
       "parameters": {
-        "sendTo": "matolematics07@gmail.com",
+        "sendTo": "your@email.com",
         "subject": "=🔥 New Hot Lead: {{$json.full_name}}",
         "message": "=🔥 NEW HOT LEAD  Name: {{$json.full_name}} Email: {{$json.email}}  Business Type: {{$json.business_type}} Revenue: {{$json.monthly_revenue}}  Biggest Challenge: {{$json.biggest_challenge}}  Goal: {{$json.goal}}  Lead Score: {{$json.lead_score}} Qualification: {{$json.qualification}}  Recommended Action: {{$json.recommended_action}}",
         "options": {}
@@ -449,11 +450,11 @@
       ],
       "id": "ce081add-7ee0-4851-8f39-7ebe4159c422",
       "name": "Send a message",
-      "webhookId": "d76aadf8-0e9b-41d8-894b-1fe9688f7e76",
+      "webhookId": "YOUR_GMAIL_WEBHOOK_ID",
       "credentials": {
         "gmailOAuth2": {
-          "id": "Xb7luKRqP3TdE9Nz",
-          "name": "Gmail OAuth2 API"
+          "id": "YOUR_GMAIL_CREDENTIAL",
+          "name": "YOUR_GMAIL_CREDENTIAL"
         }
       }
     },
@@ -462,17 +463,17 @@
         "operation": "append",
         "documentId": {
           "__rl": true,
-          "value": "1mpd8xq86bxby3h6Ogs2zfPyha0ZgVn6VR978yFB09WQ",
+          "value": "YOUR_GOOGLE_SHEET",
           "mode": "list",
-          "cachedResultName": "Lead Qualification System - Coaching Client",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mpd8xq86bxby3h6Ogs2zfPyha0ZgVn6VR978yFB09WQ/edit?usp=drivesdk"
+          "cachedResultName": "YOUR_GOOGLE_SHEET",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET"
         },
         "sheetName": {
           "__rl": true,
-          "value": 907108624,
+          "value": "YOUR_SHEET_TAB",
           "mode": "list",
           "cachedResultName": "Leads",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mpd8xq86bxby3h6Ogs2zfPyha0ZgVn6VR978yFB09WQ/edit#gid=907108624"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -480,7 +481,7 @@
             "full_name": "={{$json.full_name}}",
             "email": "={{$json.email}}",
             "business_type": "={{$json.business_type}}",
-            "biggest_challenge": "={{$json.monthly_revenue}}",
+            "biggest_challenge": "={{$json.biggest_challenge}}",
             "goal": "={{$json.goal}}",
             "budget": "={{$json.budget}}",
             "urgency": "={{$json.urgency}}",
@@ -488,13 +489,13 @@
             "qualification": "={{$json.qualification}}",
             "lead_score": "={{$json.lead_score}}",
             "recommended_action": "={{$json.recommended_action}}",
-            "submittedAt": "={{$json.submittedAt}}",
+            "submittedAt": "={{$json.submittedAt || $now}}",
             "status": "={{$json.status}}",
-            "monthly_revenue": "={{$json.monthly_revenue}} ",
+            "monthly_revenue": "={{$json.monthly_revenue}}",
             "tag": "={{$json.tag}}",
             "revenue_tier": "={{$json.revenue_tier}}",
             "urgency_level": "={{$json.urgency_level}}",
-            " processedAt": "={{ new Date().toISOString() }}"
+            "processedAt": "={{ new Date().toISOString() }}"
           },
           "matchingColumns": [],
           "schema": [
@@ -655,8 +656,8 @@
               "removed": false
             },
             {
-              "id": " processedAt",
-              "displayName": " processedAt",
+              "id": "processedAt",
+              "displayName": "processedAt",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -680,8 +681,8 @@
       "name": "Append row in sheet1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "kvCvYvasrzOBYrgB",
-          "name": "Google Sheets OAuth2 API"
+          "id": "YOUR_GOOGLE_SHEETS_CREDENTIAL",
+          "name": "YOUR_GOOGLE_SHEETS_CREDENTIAL"
         }
       }
     },
@@ -691,9 +692,9 @@
         "select": "channel",
         "channelId": {
           "__rl": true,
-          "value": "C0APMSA6KL7",
+          "value": "YOUR_SLACK_CHANNEL",
           "mode": "list",
-          "cachedResultName": "leads"
+          "cachedResultName": "YOUR_SLACK_CHANNEL"
         },
         "text": "=🔥 *New Priority Lead*\n\n👤 *Name:* {{$json.full_name}}\n📧 *Email:* {{$json.email}}\n🏢 *Business:* {{$json.business_type}}\n\n💰 *Revenue:* {{$json.monthly_revenue}}\n📊 *Score:* {{$json.lead_score}}\n\n🏷 *Tag:* {{$json.tag}}\n📈 *Revenue Tier:* {{$json.revenue_tier}}\n⚡ *Urgency:* {{$json.urgency_level}}\n\n🧠 *Summary:*\n{{$json.ai_summary}}\n\n🎯 *Recommended Action:*\n{{$json.recommended_action}}",
         "otherOptions": {}
@@ -706,11 +707,11 @@
       ],
       "id": "4a0718e3-9607-4379-8826-717c42365eb5",
       "name": "Send a message1",
-      "webhookId": "5e398e87-b3a3-4a5a-a8d3-0b9a5feb6e70",
+      "webhookId": "YOUR_SLACK_WEBHOOK_ID",
       "credentials": {
         "slackOAuth2Api": {
-          "id": "P6EGCwB3hiYFIHk8",
-          "name": "Slack OAuth2 API"
+          "id": "YOUR_SLACK_CREDENTIAL",
+          "name": "YOUR_SLACK_CREDENTIAL"
         }
       }
     }
@@ -796,11 +797,10 @@
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
-  "versionId": "e4974e7a-929c-4625-8762-d2ce9dde4b26",
+  "versionId": "00000000-0000-0000-0000-000000000000",
   "meta": {
-    "templateCredsSetupCompleted": true,
-    "instanceId": "45335bdd4dbf8df0a27c3bf858cf1975d8c540ec600c6e9d35b1fbc6a2e2fed9"
+    "templateCredsSetupCompleted": false
   },
-  "id": "JPsfmfXQq2l9FaQU",
+  "id": "AI_LEAD_QUALIFICATION_TEMPLATE",
   "tags": []
 }
